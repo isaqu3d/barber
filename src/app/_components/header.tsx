@@ -1,7 +1,28 @@
-export default function Header() {
+import { MenuIcon } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import SidebarSheet from "./sidebar-sheet"
+import { Button } from "./ui/button"
+import { Card, CardContent } from "./ui/card"
+import { Sheet, SheetTrigger } from "./ui/sheet"
+
+export function Header() {
   return (
-    <header className="bg-primary text-primary-foreground p-4">
-      <h1 className="text-xl font-bold">Barber Shop</h1>
-    </header>
+    <Card>
+      <CardContent className="flex flex-row items-center justify-between p-5">
+        <Link href="/">
+          <Image alt="FSW Barber" src="/logo.png" height={18} width={120} />
+        </Link>
+
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button size="icon" variant="outline">
+              <MenuIcon />
+            </Button>
+          </SheetTrigger>
+          <SidebarSheet />
+        </Sheet>
+      </CardContent>
+    </Card>
   )
 }
