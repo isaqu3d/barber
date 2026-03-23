@@ -2,6 +2,7 @@ import { cn } from "@/app/_lib/utils"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import localFont from "next/font/local"
+import AuthProvider from "./_providers/auth"
 import "./globals.css"
 
 const inter = Inter({
@@ -27,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn("font-sans", inter.variable, "dark")}>
       <body className={`${geistMono.variable} antialiased`}>
-        {children}
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   )
